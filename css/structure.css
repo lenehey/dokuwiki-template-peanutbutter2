@@ -1,0 +1,226 @@
+/**
+ * This file provides styles for the general layout structure.
+ *
+ * @author Anika Henke <anika@selfthinker.org>
+ * @author Klaus Vormweg <klaus.vormweg@gmx.de>
+ */
+
+#dokuwiki__site {
+  margin: 0;
+  padding: 0;
+  max-width: __site_width__;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+/* The 2-column wrapper */
+#layout-container {
+  display: flex;
+  align-items: stretch; /*ensures children fill container height */
+  min-height: 100%; /* optional for full-screen height */
+}
+
+
+/* LEFT SIDEBAR COLUMN */
+#layout-sidebar {
+  width: __sidebar_width__;       /* or use your __sidebar_width__ from style.ini */
+  background: __sidebar_background__; /* example background color */
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding:10px;
+  top:10px;
+}
+
+
+#dokuwiki__aside {
+  position: sticky;
+  top: 10px; /* or adjust to match header height if needed */
+  align-self: flex-start; /* ensures it doesn't stretch vertically */
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  overflow-y: auto;
+  z-index: 1; /* ensures it appears above background content */
+}
+
+#dokuwiki__aside > .pad {
+  margin: 0;
+}
+
+[dir=rtl] #dokuwiki__aside > .pad {
+  margin: 0 0 0 1.5em;
+}
+
+/* The main content area below header (still in right column) */
+#dokuwiki__content {
+  flex: 1;  /* grow to fill vertical space */
+  overflow: auto; /* if needed for scrolling */
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+
+/* The main column, stacked: header at top, content next, etc. */
+#layout-maincolumn {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* takes remaining horizontal space */
+}
+
+
+/* HEADER BAR in the main column */
+#dokuwiki__header {
+  background: #f4f4f4;
+  /*padding: 0.5em 1em; */
+  padding-top:10px;
+  padding-right:20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  /* no fixed height => auto-resize for search bar */
+}
+
+/* Breadcrumbs truncation if needed */
+#dokuwiki__header .breadcrumbs {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* Search bar container */
+#dokuwiki__sitetools {
+  flex-shrink: 0;
+  margin-left: 1em;  /* space from breadcrumbs */
+  bottom:0px;
+}
+
+
+/* Optional: page tools at the bottom, or however you'd like to place it */
+#dokuwiki__pagetools {
+  margin: 0em;
+}
+
+/* Footer styling, if you want it pinned or just normal flow */
+#dokuwiki__footer {
+  margin-top: auto; /* pushes footer to bottom if you want sticky footer */
+  background: #f4f4f4;
+  padding: 1em;
+}
+
+.footer-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 0.85em;
+  color: #666;
+}
+
+.footer-left {
+  flex-grow: 1;
+  text-align: left;
+  padding: 0.25em 0;
+  word-break: break-word;
+}
+
+.footer-user {
+  white-space: nowrap;
+  text-align: right;
+  padding: 0.25em 0;
+}
+
+.license-block {
+  text-align: center;
+  padding-top: 0.5em;
+}
+
+
+/* Ensure the wrapper is pushed down below the header */
+.wrapper {
+  margin-top: 3em;  /* or more if your search bar is tall */
+}
+
+
+.sidebar-container {
+  background-color: __sidebar_background__;
+  width: __sidebar_width__;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding: 1em;
+}
+
+.hasSidebar #dokuwiki__content {
+  flex: 1;
+  margin: 0;
+  padding: 0 1em;
+  box-sizing: border-box;
+}
+
+[dir=rtl] .hasSidebar #dokuwiki__content {
+  float: left;
+  margin-left: 0;
+  margin-right: -__sidebar_width__;
+}
+
+[dir=rtl] .hasSidebar .wrapper {
+  margin-right: __sidebar_width__;
+}
+
+#dokuwiki__footer {
+  clear: both;
+}
+
+#dokuwiki__footer div.pad div.license {
+  padding-top: 1em;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .wrapper {
+    flex-direction: column;
+  }
+  .sidebar-container {
+    width: 100%;
+    padding: 0.5em 1em;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #dokuwiki__aside {
+    padding: 0;
+  }
+  #dokuwiki__sitetools input[type="text"] {
+    max-width: 200px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  #dokuwiki__sitetools input[type="text"] {
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  #layout-container {
+    flex-direction: column;
+  }
+
+  #layout-sidebar {
+    order: -1;           /* Move sidebar to the top */
+    width: 100%;         /* Let it stretch full width */
+  }
+
+  #layout-maincolumn {
+    width: 100%;
+  }
+}
