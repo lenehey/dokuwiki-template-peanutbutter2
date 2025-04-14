@@ -1,7 +1,7 @@
 base     peanutbutter2
 author   Leonard Heyman
 email    lenehey@gmail.com
-date     2022/10/28
+date     2025-04-13
 name     Peanutbutter2 Template
 desc     Modified Monochrome template to look a little more like Vector2022
 url      https://github.com/lenehey/dw_tpl_peanutbutter
