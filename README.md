@@ -30,4 +30,4 @@
 
    ```bash
    cd /path/to/dokuwiki/lib/tpl
-   git clone https://github.com/yourusername/dokuwiki-template-peanutbutter peanutbutter
+   git clone https://github.com/lenehey/dokuwiki-template-peanutbutter2 
