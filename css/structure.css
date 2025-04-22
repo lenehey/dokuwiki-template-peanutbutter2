@@ -73,7 +73,7 @@
 
 /* HEADER BAR in the main column */
 #dokuwiki__header {
-  background: #f4f4f4;
+  background: __header_background__;
   /*padding: 0.5em 1em; */
   padding-top:10px;
   padding-right:20px;
@@ -109,7 +109,7 @@
 /* Footer styling, if you want it pinned or just normal flow */
 #dokuwiki__footer {
   margin-top: auto; /* pushes footer to bottom if you want sticky footer */
-  background: #f4f4f4;
+  background: __header_background__;
   padding: 1em;
 }
 
