@@ -63,19 +63,24 @@ endif;
       <div id="layout-maincolumn">
         <!-- HEADER BAR -->
         <div id="dokuwiki__header">
-          <div class="breadcrumbs">
+		
+		
+		<div class="breadcrumbs">
             <?php
             if ($conf['breadcrumbs']) {
               tpl_breadcrumbs();
             } elseif ($conf['youarehere']) {
               tpl_youarehere();
             }
-            ?>
-          </div>
+		  ?>
+		</div>
+
           <?php if ($ACT != 'denied'): ?>
             <div id="dokuwiki__sitetools">
               <?php tpl_searchform(); ?>
             </div>
+			
+			
           <?php endif; ?>
         </div><!-- /dokuwiki__header -->
 
