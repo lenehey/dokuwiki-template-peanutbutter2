@@ -7,6 +7,12 @@
  * @author Klaus Vormweg <klaus.vormweg@gmx.de>
  */
 
+/* icons
+********************************************************************/
+
+.mf_pdf {
+    background-image: url("images/fileicons/pdf.svg");
+}
 
 /* header
 ********************************************************************/
